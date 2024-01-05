@@ -1,0 +1,126 @@
+.font_35 {
+  font-size: 35px !important;
+}
+.navbar .navbar-brand-wrapper .navbar-brand img {
+  height: 50px;
+  border-radius: 3px;
+}
+.sidebar .nav:not(.sub-menu) > .nav-item > .nav-link[aria-expanded="true"] {
+  background-color: #f60 !important;
+}
+.sidebar .nav.sub-menu {
+  padding: 5px !important;
+  background-color: #e3e3e3 !important;
+  border-radius: 0px 0px 5px 5px;
+}
+.sidebar .nav.sub-menu .nav-item .nav-link {
+  color: #555 !important;
+}
+.sidebar .nav .nav-item .nav-link .menu-title {
+  font-size: 15px !important;
+}
+.sidebar .nav .nav-item .nav-link i.menu-icon {
+  margin-right: 5px !important;
+}
+select.form-control {
+  color: #4d4d4d;
+}
+.btn_padd {
+  padding: 10px !important;
+}
+.bi-person-fill {
+  font-size: 30px;
+  color: #ff6600;
+}
+
+.perfil_radius {
+  width: 45px;
+  height: 45px;
+  border: 1px solid #8e9193;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar .nav .nav-item.active > .nav-link {
+  color: #e3e3e3 !important;
+}
+.font_alert {
+  font-size: 20px !important;
+}
+.borderInput {
+  border: 1px solid #ced4da !important;
+}
+
+.gj-picker-md [role="header"] {
+  background: #f60 !important;
+}
+.gj-picker-md [role="footer"] button.gj-button-md {
+  color: #f60 !important;
+}
+.gj-picker-md .arrow-begin,
+.gj-picker-md [role="body"] [role="arrow"] {
+  background-color: #f60 !important;
+}
+.gj-picker-md .arrow-end {
+  border: 16px solid #f60;
+}
+.gj-icon {
+  color: #f60 !important;
+}
+.gj-picker-md table tr td.selected.gj-cursor-pointer div {
+  background-color: #f60 !important;
+}
+.card.card-light-danger {
+  background: #f60 !important;
+}
+.toast {
+  border: none !important;
+}
+.bi-filetype-csv {
+  color: #f60 !important;
+}
+.bi-filetype-csv:hover {
+  cursor: pointer;
+  color: green !important;
+}
+.btn_padding {
+  padding: 10px !important;
+}
+.bi-filetype-pdf,
+.bi-receipt {
+  color: #f60 !important;
+  font-size: 25px;
+}
+.sin_deuda {
+  color: green !important;
+}
+.modal .modal-dialog .modal-content .modal-header {
+  padding: 10px !important;
+}
+.deuda {
+  color: red !important;
+}
+.auth .auth-form-light select {
+  color: #373737 !important;
+}
+.custom_td {
+  padding: 7px !important;
+}
+.pad_btn {
+  padding: 8px !important;
+}
+body tr td:hover {
+  cursor: pointer !important;
+}
+.btn-success {
+  background-color: #10ac10 !important;
+  border-color: #10ac10;
+}
+body tr td:hover {
+  cursor: pointer !important;
+}
+.campo_obligatorio {
+  outline: none !important;
+  border: 1px solid #f60 !important;
+}

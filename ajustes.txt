@@ -1,0 +1,5 @@
+1. Los clientes no podra hacer una reserva para el mismo dia, minimo un dia con antelacion.
+2. Poner las estrellas para las casillas obligatorias. Se coloco las casillas obligatorias de color rojo.
+3. Quitar Lavado Exterior Básico (Gratuito) (Tengo que quitarlo del PDF)
+4.
+

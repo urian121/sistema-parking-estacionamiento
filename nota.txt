@@ -1,0 +1,259 @@
+STATUS DE UNA RESERVA 
+0: PENDIENTE POR ACEPTA
+1: PROCESADA - CONCRETADA (EN AGENDA)
+2: EN HISTORIAL (YA FUERON GESTIONADAS)
+
+// Datos
+$cliente = array(
+    'Código Cliente' => 3367,
+    'Apellidos' => 'Apellidos del cliente',
+    'DNI/Passport' => 'X5596940M',
+    'Direccion' => 'Dirección del cliente',
+    'Codigo Postal' => 'Código Postal del cliente',
+    'Ciudad' => 'MOLINA DEL SEGURA (Murcia)',
+    'Pais' => 'ESPAÑA',
+    'Telefono' => '649936611'
+);
+
+// Configuración de la fuente
+$pdf->SetFont('Helvetica', 'B', 9);
+
+// Configuración de la tabla
+$anchoColumna1 = 50;
+$anchoColumna2 = 100;
+$altoCelda = 10;
+
+// Establecer posición inicial de la tabla
+$posicionX = 10;
+$posicionY = $pdf->GetY() + 10;
+
+// Crear tabla
+foreach ($cliente as $campo => $valor) {
+    $pdf->SetXY($posicionX, $posicionY);
+    $pdf->Cell($anchoColumna1, $altoCelda, $campo, 1);
+    
+    // Cambiar la fuente para el valor (no negrita)
+    $pdf->SetFont('Helvetica', '', 9);
+
+    $pdf->Cell($anchoColumna2, $altoCelda, $valor, 1);
+
+    // Restaurar la fuente a negrita para las claves
+    $pdf->SetFont('Helvetica', 'B', 9);
+
+    $posicionY += $altoCelda; // Ajustar la posición Y para la siguiente fila
+}
+
+// Ajustar según sea necesario
+$pdf->SetXY($posicionX, $posicionY + 10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Datos
+$cliente = array(
+    'Código Cliente' => 3367,
+    'Apellidos' => 'Apellidos del cliente',
+    'DNI/Passport' => 'X5596940M',
+    'Direccion' => 'Dirección del cliente',
+    'Codigo Postal' => 'Código Postal del cliente',
+    'Ciudad' => 'MOLINA DEL SEGURA (Murcia)',
+    'Pais' => 'ESPAÑA',
+    'Telefono' => '649936611'
+);
+
+// Configuración de la fuente
+$pdf->SetFont('Helvetica', 'B', 9);
+
+// Configuración de la tabla
+$anchoColumna1 = 50;
+$anchoColumna2 = 100;
+$altoCelda = 10;
+
+// Establecer posición inicial de la tabla
+$posicionX = 10;
+$posicionY = $pdf->GetY() + 10;
+
+// Crear tabla
+foreach ($cliente as $campo => $valor) {
+    $pdf->SetXY($posicionX, $posicionY);
+    $pdf->Cell($anchoColumna1, $altoCelda, $campo, 'B'); // Agregar borde inferior
+    
+    // Cambiar la fuente para el valor (no negrita)
+    $pdf->SetFont('Helvetica', '', 9);
+
+    $pdf->Cell($anchoColumna2, $altoCelda, $valor, 'B'); // Agregar borde inferior
+
+    // Restaurar la fuente a negrita para las claves
+    $pdf->SetFont('Helvetica', 'B', 9);
+
+    $posicionY += $altoCelda; // Ajustar la posición Y para la siguiente fila
+}
+
+// Ajustar según sea necesario
+$pdf->SetXY($posicionX, $posicionY + 10);
+
+
+
+
+
+
+
+
+
+// Datos
+$cliente = array(
+    'Código Cliente' => 3367,
+    'Apellidos' => 'Apellidos del cliente',
+    'DNI/Passport' => 'X5596940M',
+    'Direccion' => 'Dirección del cliente',
+    'Codigo Postal' => 'Código Postal del cliente',
+    'Ciudad' => 'MOLINA DEL SEGURA (Murcia)',
+    'Pais' => 'ESPAÑA',
+    'Telefono' => '649936611'
+);
+
+// Configuración de la fuente
+$pdf->SetFont('Helvetica', 'B', 9);
+
+// Configuración de la tabla
+$anchoColumna1 = 50;
+$anchoColumna2 = 100;
+$altoCelda = 10;
+
+// Establecer posición inicial de la tabla
+$posicionX = 10;
+$posicionY = $pdf->GetY() + 10;
+
+// Crear tabla
+foreach ($cliente as $campo => $valor) {
+    $pdf->SetXY($posicionX, $posicionY);
+
+    // Configuraciones para el borde de la clave
+    $pdf->SetDrawColor(200, 200, 200);
+    $pdf->SetLineWidth(0.2);
+
+    // Agregar borde inferior delgado para la clave
+    $pdf->Cell($anchoColumna1, $altoCelda, $campo, 'B');
+
+    // Restaurar configuración del borde
+    $pdf->SetDrawColor(0, 0, 0);
+    $pdf->SetLineWidth(0.2);
+
+    // Cambiar la fuente para el valor (no negrita)
+    $pdf->SetFont('Helvetica', '', 9);
+
+    // Configuraciones para el borde del valor
+    $pdf->SetDrawColor(200, 200, 200);
+    $pdf->SetLineWidth(0.2);
+
+    // Agregar borde inferior delgado para el valor
+    $pdf->Cell($anchoColumna2, $altoCelda, $valor, 'B');
+
+    // Restaurar configuración del borde
+    $pdf->SetDrawColor(0, 0, 0);
+    $pdf->SetLineWidth(0.2);
+
+    // Restaurar la fuente a negrita para las claves
+    $pdf->SetFont('Helvetica', 'B', 9);
+
+    $posicionY += $altoCelda; // Ajustar la posición Y para la siguiente fila
+}
+
+// Ajustar según sea necesario
+$pdf->SetXY($posicionX, $posicionY + 10);
+
+
+
+
+<?php echo $reserva["formato_pago"] ? 'Descargar Factura' : 'Crear Factura'; ?>
+
+
+
+        echo "<pre>";
+        print_r($_POST);
+        echo "</pre>";
+
+
+
+https://github.com/PHPMailer/PHPMailer
+composer require phpmailer/phpmailer
+
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Asegúrate de que la ruta sea correcta
+
+$para = 'urian1213viera@gmail.com';
+$nameFull = "Urian Viera";
+$urlCanal = "https://www.youtube.com/channel/UCodSpPp_r_QnYIQYCjlyVGA";
+$titulo = "Mi Formulario de Contacto";
+
+$mensaje = "
+<!doctype html>
+<html lang='es'>
+<head>
+<title>EMAIL</title>
+</head>
+<body>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div style='width: 80%; margin:0 auto; background-color: #ffffff; color: #34495e; text-align: center;font-family: sans-serif'>
+        <h2 style='font-size: 16px; color: #34495e; margin: 0 0 7px;'>&#161;Felicitaciones&#33; 
+            <strong style='color:#555;'> ".$nameFull."</strong>, dale click al bot&oacute;n para visualizar tu bono de descuento de <strong>$20.000</strong>. 
+            Recuerda mostrarlo en la caja de cualquier sede del retailer escogido, no es necesario imprimirlo.
+        </h2>
+        <p>&nbsp;</p>
+            <a href=".$urlCanal." style='background-color: #fe4c50;border: #fe4c50;color: white;text-decoration: none;padding: 10px 40px;border-radius: 5px;'> Ver cup&oacute;n </a>
+        <p>&nbsp;</p>
+        <img style='padding: 0; display: block; width:100%; max-width:600px; margin:0 auto;' src='https://blogangular-c7858.web.app/assets/images/work.gif'>
+        <p>&nbsp;</p>
+    </div>
+</body>
+</html>
+"; 
+
+$mail = new PHPMailer(true);
+
+try {
+    //Configuración del servidor SMTP
+    $mail->isSMTP();
+    $mail->Host = 'tu_servidor_smtp';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'tu_correo';
+    $mail->Password = 'tu_contraseña';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+
+    //Destinatario
+    $mail->setFrom('programadorphp2017@gmail.com', 'WebDeveloper');
+    $mail->addAddress($para);
+
+    //Contenido del mensaje
+    $mail->isHTML(true);
+    $mail->Subject = $titulo;
+    $mail->Body = $mensaje;
+
+    //Enviar el correo
+    $mail->send();
+    echo 'Correo electrónico enviado exitosamente';
+} catch (Exception $e) {
+    echo 'Error al enviar el correo electrónico: ', $mail->ErrorInfo;
+}
+?>
+
+
+
+
+¡Únete a nosotros ahora y crea tu cuenta en segundos!

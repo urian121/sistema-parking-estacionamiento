@@ -1,0 +1,23 @@
+.auth .brand-logo {
+  margin-bottom: 2rem;
+  display: fla;
+  display: flex;
+  justify-content: center;
+  margin-top: -75px;
+  /*background-color: #f60;*/
+}
+.auth .auth-form-light {
+  border-radius: 10px;
+  box-shadow: 0px 17px 26px -8px rgba(151, 172, 193, 0.6) !important;
+}
+
+.auth .brand-logo img {
+  width: auto !important;
+  border-radius: 5px;
+}
+.auth .auth-form-light select {
+  color: #373737 !important;
+}
+.bi-arrow-left-circle {
+  font-size: 20px;
+}
