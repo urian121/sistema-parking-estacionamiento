@@ -101,7 +101,7 @@ class MYPDF extends TCPDF
         $bMargin = $this->getBreakMargin();
         $auto_page_break = $this->AutoPageBreak;
         $this->SetAutoPageBreak(false, 0);
-        $img_file = dirname(__FILE__) . '/../assets/custom/imgs/logon_alcvaletparking.png';
+        $img_file = dirname(__FILE__) . '/../assets/custom/imgs/favicon.png';
         $this->Image($img_file, 140, 23, 30, 30, '', '', '', false, 30, '', false, false, 0);
         $this->Image($logo, 175, 22, 25);
         $this->SetAutoPageBreak($auto_page_break, $bMargin);

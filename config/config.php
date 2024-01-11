@@ -2,12 +2,7 @@
 $usuario = "root";
 $password = "";
 $servidor = "localhost";
-$basededatos = "bd_alcvaletparking";
-/*
-Bd: dev_alcvaletparking
-user: root_2023
-pass: alcvaletparking2023.-.
-*/
+$basededatos = "bd_parking";
 
 $con = mysqli_connect($servidor, $usuario, $password, $basededatos);
 
