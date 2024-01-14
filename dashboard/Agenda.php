@@ -26,6 +26,7 @@ if (isset($_SESSION['emailUser']) != "" && $_SESSION['rol'] == 1) {
                 include 'funciones.php';
                 $mis_reservas = getAllReservasPorEstadoReserva($con, 1);
                 ?>
+
                 <div class="main-panel">
                     <div class="content-wrapper">
                         <div class="row justify-content-md-center" id="MiAlert"></div>
@@ -109,8 +110,8 @@ if (isset($_SESSION['emailUser']) != "" && $_SESSION['rol'] == 1) {
                                                                         <i class="bi bi-receipt sin_deuda"></i>
                                                                     </a>
                                                                 <?php } else { ?>
-                                                                    <a class="factura" title="Crear Factura" href="#" data-total_gasto_extras='<?php echo $reserva["total_gasto_extras"]; ?>' data-email="<?php echo $reserva["emailUser"]; ?>" data-cliente="<?php echo $reserva["nombre_completo"]; ?>" data-din="<?php echo $reserva["din"]; ?>" data-matric="<?php echo $reserva["matricula"]; ?>" data-deuda="<?php echo $reserva["total_pago_reserva"]; ?>" data-id="<?php echo $reserva["id"]; ?>" data-servicios_extras=<?php echo $reserva["servicios_extras"]; ?>'>
-                                                                        <i class="bi bi-receipt"></i>
+                                                                    <a class="factura" title="Crear Factura" href="#" data-total_gasto_extras='<?php echo $reserva["total_gasto_extras"]; ?>' data-email="<?php echo $reserva["emailUser"]; ?>" data-cliente="<?php echo $reserva["nombre_completo"]; ?>" data-din="<?php echo $reserva["din"]; ?>" data-matric="<?php echo $reserva["matricula"]; ?>" data-deuda="<?php echo $reserva["total_pago_reserva"]; ?>" data-id="<?php echo $reserva["id"]; ?>" data-servicios_extras="<?php echo $reserva["servicios_extras"]; ?>">
+                                                                        <i class=" bi bi-receipt"></i>
                                                                     </a>
                                                                 <?php } ?>
                                                             </td>
@@ -125,6 +126,7 @@ if (isset($_SESSION['emailUser']) != "" && $_SESSION['rol'] == 1) {
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <?php

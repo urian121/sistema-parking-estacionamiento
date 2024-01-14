@@ -146,7 +146,7 @@ if (isset($_SESSION['emailUser']) != "") {
                                             <div class="row mb-3">
                                                 <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-2">
                                                     <label for="servicios_extras">Servicios adicionales</label>
-                                                    <textarea class="form-control" name="servicios_extras"></textarea>
+                                                    <textarea class="form-control" name="servicios_extras">Ninguno</textarea>
                                                 </div>
                                                 <div class="col-12 col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-2">
                                                     <label for="total_gasto_extras" class="form-label">

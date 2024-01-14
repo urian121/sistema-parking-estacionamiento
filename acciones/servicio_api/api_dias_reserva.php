@@ -27,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         while ($fila_data = mysqli_fetch_array($querySQL)) {
             $totalDias[] = $fila_data;
         }
-
         echo json_encode($totalDias);
         exit();
     } else {

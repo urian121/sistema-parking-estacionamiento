@@ -1,9 +1,9 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	/*
+
 	ini_set('display_errors', 1);
 	error_reporting(E_ALL);
-	*/
+
 
 	include('../../config/config.php');
 	date_default_timezone_set("Europe/Madrid");

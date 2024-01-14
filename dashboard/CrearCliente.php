@@ -21,10 +21,13 @@ if (isset($_SESSION['emailUser']) != "" && $_SESSION['rol'] == 1) {
             <?php include 'bases/navbar.php' ?>
             <div class="container-fluid page-body-wrapper">
                 <?php
-                include 'bases/config.html';
                 include 'bases/nav.php';
                 include 'funciones.php';
                 $clientesBD = getClientes($con);
+                if (isset($_GET['idCliente'])) {
+                    $idCliente = $_GET['idCliente'];
+                    $infoCliente = infoClienteBD($con, $idCliente);
+                }
                 ?>
                 <div class="main-panel">
                     <div class="content-wrapper">
@@ -33,39 +36,54 @@ if (isset($_SESSION['emailUser']) != "" && $_SESSION['rol'] == 1) {
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="auth-form-light py-2 px-4">
-                                            <h3 class="card-title text-center mb-4">Crear Cuenta Cliente
+                                            <h1 class="card-title text-center mb-4">Crear Cuenta Cliente
                                                 <hr>
-                                            </h3>
+                                            </h1>
                                             <form action="funciones.php" method="post" autocomplete="off">
-                                                <input type="text" name="accion" value="crearCliente" hidden>
+                                                <input type="text" name="accion" value="<?php echo isset($infoCliente['IdUser']) ? 'actualizarClienteAdmin' : 'crearCliente'; ?>" hidden>
+                                                <?php if (isset($infoCliente['IdUser'])) { ?>
+                                                    <input type="text" name="IdUser" value="<?php echo $infoCliente['IdUser']; ?>" hidden>
+                                                <?php } ?>
                                                 <div class="row mb-2">
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" name="nombre_completo" class="form-control form-control-lg" required="" placeholder="Nombre completo">
+                                                        <input type="text" name="nombre_completo" class="form-control form-control-lg" required="" placeholder="Nombre completo / Razón social" value="<?php echo isset($infoCliente['nombre_completo']) ? $infoCliente['nombre_completo'] : ''; ?>">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="din" class="form-control form-control-lg" placeholder="DIN" required="">
+                                                        <input type="text" name="din" class="form-control form-control-lg" placeholder="DNI / CIF" value="<?php echo isset($infoCliente['din']) ? $infoCliente['din'] : ''; ?>">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="direccion_completa" class="form-control form-control-lg" placeholder="Dirección completa" required="">
+                                                    <input type="text" name="direccion_completa" class="form-control form-control-lg" placeholder="Dirección completa" value="<?php echo isset($infoCliente['direccion_completa']) ? $infoCliente['direccion_completa'] : ''; ?>">
                                                 </div>
                                                 <div class="row mb-2">
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="password" name="passwordUser" class="form-control form-control-lg" placeholder="Clave" required="">
+                                                        <input type="password" name="passwordUser" class="form-control form-control-lg" placeholder="Clave" <?php (isset($infoCliente['IdUser'])) ? '' : 'required'; ?>>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="email" name="emailUser" class="form-control form-control-lg" placeholder="Email" required="">
+                                                        <input type="email" name="emailUser" class="form-control form-control-lg" placeholder="Email" value="<?php echo isset($infoCliente['emailUser']) ? $infoCliente['emailUser'] : ''; ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-2">
+                                                    <div class="col-md-6 mb-2">
+                                                        <input type="text" name="tlf" class="form-control form-control-lg" placeholder="Teléfono" value="<?php echo isset($infoCliente['tlf']) ? $infoCliente['tlf'] : ''; ?>">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="form-floating">
-                                                        <textarea class="form-control" name="observaciones" placeholder="Observaciones" style="height: 100px"></textarea>
+                                                        <textarea class="form-control" name="observaciones" placeholder="Observaciones" style="height: 140px"><?php echo isset($infoCliente['observaciones']) ? $infoCliente['observaciones'] : ''; ?></textarea>
                                                     </div>
                                                 </div>
+
                                                 <div class="mt-3">
-                                                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
-                                                        Crear Cuenta
-                                                    </button>
+                                                    <?php if (isset($infoCliente['IdUser'])) { ?>
+                                                        <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                                                            Actualizar Cliente
+                                                        </button>
+                                                    <?php } else { ?>
+                                                        <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                                                            Registrar Cliente
+                                                        </button>
+                                                    <?php } ?>
                                                 </div>
                                             </form>
                                         </div>
@@ -75,16 +93,16 @@ if (isset($_SESSION['emailUser']) != "" && $_SESSION['rol'] == 1) {
                             <div class="col-md-7">
                                 <div class="card">
                                     <div class="card-body mt-3">
-                                        <h3 class="text-center mb-4">Lista de Clientes
+                                        <h1 class="text-center mb-4">Lista de Clientes
                                             <hr>
-                                        </h3>
+                                        </h1>
                                         <div class="table-responsive">
                                             <table id="MiTabla" class="table table-hover">
                                                 <thead>
                                                     <tr>
                                                         <th>Nº Cliente</th>
                                                         <th>Cliente</th>
-                                                        <th>DNI</th>
+                                                        <th>DNI / CIF</th>
                                                         <th>Email</th>
                                                         <th>Teléfono</th>
                                                         <th>Dirección</th>
@@ -93,11 +111,11 @@ if (isset($_SESSION['emailUser']) != "" && $_SESSION['rol'] == 1) {
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    while ($reserva = mysqli_fetch_array($clientesBD)) { ?>
+                                                    while ($row = mysqli_fetch_array($clientesBD)) { ?>
                                                         <tr>
                                                             <td class="custom_td">
                                                                 <?php
-                                                                $reserva_id = $reserva["IdUser"];
+                                                                $reserva_id = $row["IdUser"];
                                                                 if ($reserva_id < 10) {
                                                                     echo 'C-00' . $reserva_id;
                                                                 } elseif ($reserva_id < 100) {
@@ -107,15 +125,16 @@ if (isset($_SESSION['emailUser']) != "" && $_SESSION['rol'] == 1) {
                                                                 }
                                                                 ?>
                                                             </td>
-                                                            <td class="custom_td"><?php echo $reserva["nombre_completo"]; ?></td>
-                                                            <td class="custom_td"><?php echo $reserva["din"]; ?></td>
-                                                            <td class="custom_td"><?php echo $reserva["emailUser"]; ?></td>
-                                                            <td class="custom_td"><?php echo $reserva["tlf"]; ?></td>
-                                                            <td class="custom_td"><?php echo $reserva["direccion_completa"]; ?></td>
-                                                            <td class="custom_td"><button type="button" class="btn btn-info btn_padding">
+                                                            <td class="custom_td"><?php echo $row["nombre_completo"]; ?></td>
+                                                            <td class="custom_td"><?php echo $row["din"]; ?></td>
+                                                            <td class="custom_td"><?php echo $row["emailUser"]; ?></td>
+                                                            <td class="custom_td"><?php echo $row["tlf"]; ?></td>
+                                                            <td class="custom_td"><?php echo $row["direccion_completa"]; ?></td>
+                                                            <td class="custom_td">
+                                                                <a href="CrearCliente.php?idCliente=<?php echo $row["IdUser"]; ?>" class="btn btn-info btn_padding">
                                                                     <i class="bi bi-pencil"></i>
                                                                     Editar
-                                                                </button>
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>

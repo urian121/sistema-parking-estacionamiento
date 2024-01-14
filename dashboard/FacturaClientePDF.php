@@ -123,16 +123,16 @@ class MYPDF extends TCPDF
 
         $this->SetFont('Times', '', 12);
         $this->SetXY(10, 20);
-        $this->Cell(0, 0, 'ALC VALET PARKING', 0, 1, 'L'); // Cambié el último parámetro a 1
+        $this->Cell(0, 0, 'NEW YORK PARKING', 0, 1, 'L'); // Cambié el último parámetro a 1
 
         $this->SetX(10);
         $this->Cell(0, 0, 'E72706781', 0, 1, 'L');
 
         $this->SetX(10);
-        $this->Cell(0, 0, 'Ctra. Aeropuerto-Torellano s/n CV-852', 0, 1, 'L');
+        $this->Cell(0, 0, 'Ctra. Aeropuerto-Bogota s/n CV-852', 0, 1, 'L');
 
         $this->SetX(10);
-        $this->Cell(0, 0, '03320 Torrellano(Alicante)', 0, 1, 'L');
+        $this->Cell(0, 0, '03320 Torrellano(Parking)', 0, 1, 'L');
 
         $this->SetX(10);
         $this->Cell(0, 0, 'Oficina +34 966 109 228', 0, 1, 'L');
@@ -141,10 +141,10 @@ class MYPDF extends TCPDF
         $this->Cell(0, 0, 'Movil +34 601 356 356', 0, 1, 'L');
 
         $this->SetX(10);
-        $this->Cell(0, 0, 'info@alcvaletparking.com', 0, 1, 'L');
+        $this->Cell(0, 0, 'info@parking.com', 0, 1, 'L');
 
         $this->SetX(10);
-        $this->Cell(0, 0, 'www.alcvaletparking.com', 0, 1, 'L');
+        $this->Cell(0, 0, 'www.urianviera.com', 0, 1, 'L');
 
         //Linea Horizontal
         $this->Line(10, 70, 200, 70); // Cambia los valores según tu diseño

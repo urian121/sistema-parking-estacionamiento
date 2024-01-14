@@ -249,4 +249,51 @@
         // Utiliza urlencode para asegurar que los parámetros del URL estén correctamente codificados
         header("location:../emails/factura_email.php?emailUser=" . urlencode($email_cliente) . "&IdReserva=" . urlencode($idReserva));
     }
+
+    /**
+     * Informacion perfil Cliente desde perfil Administrador
+     */
+    function infoClienteBD($con, $idCliente)
+    {
+        $infoCliente = "SELECT 
+                    c.IdUser,
+                    c.emailUser, 
+                    c.nombre_completo,
+                    c.din,
+                    c.direccion_completa, 
+                    c.tlf,
+                    c.observaciones
+                FROM tbl_clientes AS  c
+                WHERE IdUser='$idCliente' LIMIT 1";
+        $query = mysqli_query($con, $infoCliente);
+        if (!$query) {
+            return false;
+        }
+        $data = mysqli_fetch_assoc($query);
+        mysqli_free_result($query);
+        return $data;
+    }
+
+
+    /**
+     * Actualizar datos del Cliente desde el perfil Administrador
+     */
+    if (isset($_POST["accion"]) && $_POST["accion"] == "actualizarClienteAdmin") {
+
+        $nombre_completo = $_POST['nombre_completo'];
+        $din = $_POST['din'];
+        $direccion_completa = $_POST['direccion_completa'];
+        $passwordUser = trim($_POST['passwordUser']);
+        $emailUser = trim($_POST['emailUser']);
+        $tlf = $_POST['tlf'];
+        $observaciones = $_POST['observaciones'];
+        $IdUser = trim($_POST['IdUser']);
+        $PasswordHash = password_hash($passwordUser, PASSWORD_BCRYPT); //Incriptando clave,
+
+        $Update = "UPDATE tbl_clientes SET emailUser='$emailUser', passwordUser='$PasswordHash', nombre_completo='$nombre_completo', din='$din', direccion_completa='$direccion_completa', tlf='$tlf', observaciones='$observaciones', observaciones='$observaciones' WHERE IdUser='$IdUser'";
+        $resultado = mysqli_query($con, $Update);
+        if ($resultado) {
+            header("location:./CrearCliente.php?successUC=1");
+        }
+    }
     ?>

@@ -154,6 +154,8 @@ const calcularPago = async (tipoPlaza) => {
     // Puedes ajustar la URL a la que deseas enviar el formulario
     const url = "../acciones/servicio_api/api_dias_reserva.php";
     const response = await axios.post(url, formData);
+    console.log(response.data);
+    return;
 
     // Manejar la respuesta según sea necesario
     const dataFromServer = response.data;

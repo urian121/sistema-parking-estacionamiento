@@ -17,7 +17,7 @@
             <div class="auth-form-light text-left py-5 px-4">
               <div class="brand-logo">
                 <a href="./">
-                  <img src="assets/custom/imgs/logo_naranja.png" alt="logo" />
+                  <img src="assets/custom/imgs/logo.png" alt="logo" />
                 </a>
               </div>
               <h2 class="text-center mb-4">Crear Cuenta

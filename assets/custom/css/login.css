@@ -3,7 +3,7 @@
   display: fla;
   display: flex;
   justify-content: center;
-  margin-top: -75px;
+  margin-top: -100px;
   /*background-color: #f60;*/
 }
 .auth .auth-form-light {
@@ -12,6 +12,7 @@
 }
 
 .auth .brand-logo img {
+  max-width: 120px;
   width: auto !important;
   border-radius: 5px;
 }
