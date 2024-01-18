@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.4.28-MariaDB)
 # Base de datos: bd_parking
-# Tiempo de Generación: 2024-01-14 23:52:20 +0000
+# Tiempo de Generación: 2024-01-18 00:21:58 +0000
 # ************************************************************
 
 
@@ -46,7 +46,7 @@ LOCK TABLES `tbl_clientes` WRITE;
 
 INSERT INTO `tbl_clientes` (`IdUser`, `emailUser`, `passwordUser`, `nombre_completo`, `din`, `direccion_completa`, `tlf`, `conocido_por`, `observaciones`, `terminos`, `rol`, `sesionDesde`, `sesionHasta`, `createUser`)
 VALUES
-	(21,'urian1213viera@gmail.com','$2y$10$G3I.Tw0X2Ifbug3tc9yU2u8yuTY4AdAWrCRFNbWtYVerLBP3jZcHG','Dev','4544544','Bogota','1236547','Un Amigo','Ok',1,1,'2024-01-15 00:11:52',NULL,'2024-01-14 19:46:16'),
+	(21,'urian1213viera@gmail.com','$2y$10$G3I.Tw0X2Ifbug3tc9yU2u8yuTY4AdAWrCRFNbWtYVerLBP3jZcHG','Dev','4544544','Bogota - Colombia','1236547','Un Amigo','Ok',1,1,'2024-01-18 00:39:32',NULL,'2024-01-14 19:46:16'),
 	(22,'jose@gmail.com','$2y$10$YWmVPPQYCXfkUlKHLxxFIeApKazZRbG2.UVhRVqU2Hme5RGbdYQ.C','Jose','33344','Fontibon','4545','Teléfono','ok',1,0,'2024-01-14 23:39:51',NULL,'2024-01-14 23:39:30');
 
 /*!40000 ALTER TABLE `tbl_clientes` ENABLE KEYS */;
@@ -847,7 +847,7 @@ CREATE TABLE `tbl_reservas` (
   `observacion_cliente` mediumtext DEFAULT NULL,
   `fecha_pago_factura` date DEFAULT NULL,
   `servicios_extras` mediumtext DEFAULT NULL,
-  `total_gasto_extras` decimal(8,2) DEFAULT 0.00,
+  `total_gasto_extras` decimal(8,2) DEFAULT NULL,
   `estado_reserva` int(11) DEFAULT 0,
   `date_registro` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
@@ -858,9 +858,11 @@ LOCK TABLES `tbl_reservas` WRITE;
 
 INSERT INTO `tbl_reservas` (`id`, `id_cliente`, `fecha_entrega`, `hora_entrega`, `fecha_recogida`, `hora_recogida`, `tipo_plaza`, `terminal_entrega`, `terminal_recogida`, `matricula`, `color`, `marca_modelo`, `numero_vuelo_de_vuelta`, `servicio_adicional`, `total_dias_reserva`, `total_pago_reserva`, `descuento`, `formato_pago`, `observacion_cliente`, `fecha_pago_factura`, `servicios_extras`, `total_gasto_extras`, `estado_reserva`, `date_registro`)
 VALUES
-	(1,22,'2024-01-16','06:15:00','2024-01-26','05:45','Plaza Cubierto','Aeropuerto de Alicante','Aeropuerto de Alicante','m','c','m','v','Si',NULL,47.00,0,NULL,NULL,NULL,'Ninguno',0.00,0,'2024-01-14 18:41:47'),
-	(2,22,'2024-01-16','06:15:00','2024-01-25','07:00','Plaza Aire Libre','Aeropuerto de Alicante','Aeropuerto de Alicante','m','c','mm','54645','Si',NULL,51.50,0,'Pago con Tarjeta de Crédito/Débito',NULL,'2024-01-15','Ninguno',12.00,1,'2024-01-14 18:43:28'),
-	(3,21,'2024-01-15','05:45:00','2024-01-16','06:00','Plaza Cubierto','434','434','343','3434','34','34','No',NULL,20.00,0,NULL,NULL,NULL,'434',34.00,0,'2024-01-14 18:15:37');
+	(1,22,'2024-01-16','06:15:00','2024-01-26','05:45','Plaza Cubierto','Aeropuerto de Alicante','Aeropuerto de Alicante','m','c','m','v','Si',NULL,47.00,0,'Tarjeta Bancaria',NULL,'2024-01-18','Ninguno',0.00,1,'2024-01-17 19:03:15'),
+	(2,22,'2024-01-16','06:15:00','2024-01-25','07:00','Plaza Aire Libre','Aeropuerto de Alicante','Aeropuerto de Alicante','m','c','mm','54645','Si',NULL,51.50,0,'Pago con Tarjeta de Crédito/Débito',NULL,'2024-01-15','Ninguno',12.00,2,'2024-01-17 19:05:59'),
+	(3,21,'2024-01-15','05:45:00','2024-01-16','06:00','Plaza Cubierto','434','434','343','3434','34','34','No',NULL,20.00,0,NULL,NULL,NULL,'434',34.00,0,'2024-01-14 18:15:37'),
+	(4,22,'2024-01-18','05:30:00','2024-01-24','06:45','Plaza Cubierto','t','t','t','t','t','yt','No',NULL,39.00,0,NULL,NULL,NULL,'Ninguno',NULL,0,'2024-01-17 18:54:39'),
+	(5,22,'2024-01-23','06:15:00','2024-01-24','06:15','Plaza Cubierto','tr','t','ttr','546','trt','rtr','No',NULL,20.00,0,NULL,NULL,NULL,'Ninguno',0.00,0,'2024-01-17 18:56:23');
 
 /*!40000 ALTER TABLE `tbl_reservas` ENABLE KEYS */;
 UNLOCK TABLES;

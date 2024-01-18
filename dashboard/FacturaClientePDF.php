@@ -94,15 +94,16 @@ class MYPDF extends TCPDF
 
 
 
-        $path = dirname(__FILE__);
-        $logo = $path . '/../assets/custom/imgs/logo_parking.png'; // Asegúrate de que el separador de directorios esté correcto
+
 
         /** Logo Derecha */
         $bMargin = $this->getBreakMargin();
         $auto_page_break = $this->AutoPageBreak;
         $this->SetAutoPageBreak(false, 0);
-        $img_file = dirname(__FILE__) . '/../assets/custom/imgs/favicon.png';
-        $this->Image($img_file, 140, 23, 30, 30, '', '', '', false, 30, '', false, false, 0);
+
+        $path = dirname(__FILE__);
+        $logo = $path . '/../assets/custom/imgs/logo.png'; // Asegúrate de que el separador de directorios esté correcto
+
         $this->Image($logo, 175, 22, 25);
         $this->SetAutoPageBreak($auto_page_break, $bMargin);
         $this->setPageMark();

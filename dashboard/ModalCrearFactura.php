@@ -39,7 +39,7 @@
                            <label for="total_gasto_extras" class="form-label">
                                Total gasto adicional
                                <i class="bi bi-currency-euro"></i></label>
-                           <input type="text" name="total_gasto_extras" id="total_gasto_extras" oninput="formatCurrency(event)" class="form-control">
+                           <input type="text" name="total_gasto_extras" id="total_gasto_extras" oninput="formatCurrency(event)" class="form-control" value="0">
                        </div>
                    </div>
                    <div class="modal-footer">

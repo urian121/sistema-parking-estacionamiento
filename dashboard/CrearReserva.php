@@ -152,7 +152,7 @@ if (isset($_SESSION['emailUser']) != "") {
                                                     <label for="total_gasto_extras" class="form-label">
                                                         Total gasto adicional
                                                     </label>
-                                                    <input type="text" name="total_gasto_extras" oninput="formatCurrency(event)" class="form-control">
+                                                    <input type="text" name="total_gasto_extras" oninput="formatCurrency(event)" class="form-control" value="0">
                                                 </div>
                                             </div>
 

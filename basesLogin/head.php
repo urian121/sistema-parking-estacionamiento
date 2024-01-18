@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="assets/vendors/ti-icons/css/themify-icons.css" />
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css" />
   <link rel="stylesheet" href="assets/css/vertical-layout-light/style.css" />
-  <link rel="shortcut icon" href="assets/custom/imgs/favicon.png" />
+  <link rel="shortcut icon" href="assets/custom/imgs/logo.png" />
   <link rel="stylesheet" href="assets/custom/css/login.css" />
   <link rel="stylesheet" href="assets/custom/css/loader.css" />
 

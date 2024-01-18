@@ -113,14 +113,14 @@
         $total_pago_reserva = trim($_POST['total_pago_reserva']);
         $descuento = isset($_POST['descuento']) ? trim($_POST['descuento']) : 0;
         $servicios_extras = $_POST['servicios_extras'];
-        $total_gasto_extras = isset($_POST['total_gasto_extras']) ? trim($_POST['total_gasto_extras']) : 0;
+
+        $total_gasto_extras = isset($_POST['total_gasto_extras']) ? trim($_POST['total_gasto_extras']) : NULL;
         if ($total_gasto_extras != "") {
             // Convierte las variables a números y realiza la operación aritmética
             $deudaTotal = number_format(($total_pago_reserva + $total_gasto_extras), 2, '.', '');
         } else {
             $deudaTotal = $total_pago_reserva;
         }
-
         $queryInserReserva  = ("INSERT INTO tbl_reservas(id_cliente, fecha_entrega, hora_entrega, fecha_recogida, hora_recogida, tipo_plaza, terminal_entrega, terminal_recogida, matricula, color, marca_modelo, numero_vuelo_de_vuelta, servicio_adicional, total_pago_reserva, descuento, servicios_extras, total_gasto_extras) 
                             VALUES('$id_cliente','$fecha_entrega','$hora_entrega','$fecha_recogida','$hora_recogida', '$tipo_plaza', '$terminal_entrega', '$terminal_recogida', '$matricula', '$color', '$marca_modelo', '$numero_vuelo_de_vuelta', '$servicio_adicional', '$total_pago_reserva', '$descuento', '$servicios_extras', '$total_gasto_extras')");
         $resultInsert = mysqli_query($con, $queryInserReserva);
