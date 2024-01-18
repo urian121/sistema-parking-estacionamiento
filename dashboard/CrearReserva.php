@@ -160,7 +160,7 @@ if (isset($_SESSION['emailUser']) != "") {
                                                 <div class="col-md-6">
                                                     <div class="mt-3">
                                                         <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
-                                                            Crear Cuenta
+                                                            Crear Reserva
                                                         </button>
                                                     </div>
                                                 </div>
