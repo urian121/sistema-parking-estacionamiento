@@ -22,8 +22,8 @@ try {
     $mail->SMTPAuth   = true;
 
     // Credenciales de la cuenta
-    $mail->Username   = 'programadorphp2017@gmail.com';
-    $mail->Password   = 'vfnzebeyquznyyhp';
+    $mail->Username   = 'tucorreo@gmail.com';
+    $mail->Password   = 'tuclavedeseguridad';
     $mail->SMTPSecure = 'tls';
     //$mail->SMTPSecure = "ssl";      
     $mail->Port       = 587; // o 465
