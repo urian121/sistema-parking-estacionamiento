@@ -1,0 +1,57 @@
+PHPMailer es una biblioteca de PHP que facilita el envío de correos electrónicos desde una aplicación PHP. Aquí te presento una guía básica de los pasos para usar la librería PHPMailer:
+
+Paso 1: 
+Descargar PHPMailer
+
+Descarga la última versión estable de PHPMailer desde su repositorio oficial en GitHub.
+Paso 2: 
+
+Extraer y Configurar
+
+Descomprime el archivo descargado y coloca la carpeta PHPMailer en tu proyecto. Luego, incluye el archivo autoload.php en tu script PHP para cargar la biblioteca:
+
+require 'ruta/a/PHPMailer/src/PHPMailer.php';
+require 'ruta/a/PHPMailer/src/SMTP.php';
+require 'ruta/a/PHPMailer/src/Exception.php';
+
+
+Paso 3: Configurar el Objeto PHPMailer
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+$mail = new PHPMailer(true);
+
+// Configuración del servidor SMTP
+
+$mail->isSMTP();
+$mail->Host = 'smtp.tudominio.com'; // Reemplaza con tu servidor SMTP
+$mail->SMTPAuth = true;
+$mail->Username = 'tu_correo@tudominio.com'; // Reemplaza con tu correo
+$mail->Password = 'tu_contraseña'; // Reemplaza con tu contraseña
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Puedes cambiarlo a PHPMailer::ENCRYPTION_SMTPS si es necesario
+$mail->Port = 587; // Reemplaza con el puerto de tu servidor SMTP
+
+// Configuración del correo
+$mail->setFrom('tu_correo@tudominio.com', 'Tu Nombre');
+$mail->addAddress('correo_destino@dominio.com', 'Nombre Destinatario');
+$mail->Subject = 'Asunto del Correo';
+$mail->Body = 'Contenido del correo';
+
+// Si necesitas adjuntar archivos
+//$mail->addAttachment('ruta/al/archivo.pdf');
+
+Paso 4: Enviar el Correo
+
+try {
+$mail->send();
+echo 'Correo enviado correctamente';
+} catch (Exception $e) {
+echo "Error al enviar el correo: {$mail->ErrorInfo}";
+}
+
+Asegúrate de reemplazar los valores como el servidor SMTP, correo y contraseña con los de tu proveedor de correo. Este es un ejemplo básico, y puedes ajustar la configuración según tus necesidades específicas. Consulta la documentación oficial de PHPMailer para obtener información detallada sobre opciones y características adicionales.
+
+Desde aqui puedes generar la clave de seguridad para el envio de email
+https://myaccount.google.com/u/1/security?hl=es_419
