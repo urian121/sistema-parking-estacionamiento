@@ -1,8 +1,7 @@
-### Sistema para el control de Estacionamiento
+# Sistema para el control de Estacionamiento
 
-##### Este proyecto tiene como fin presentar un sistema que permita administrar un estacionamineto para vehiculos, llevando todo el contro desde que llego, cuando saldra, si ya ha pagado, facturas, reportes etc.
-
-##### Ademas cuenta con un login para identificar el tipo de usuario, ya se un cliente que esta haciendo un reserva o el administrador que la esta gestionando.
+Sistema de Control de Estacionamiento
+Este sistema permite administrar eficientemente un estacionamiento de vehículos, gestionando desde la llegada hasta la salida, controlando pagos, generando facturas y reportes. Además, cuenta con un sistema de login para identificar el tipo de usuario, ya sea un cliente realizando una reserva o un administrador gestionando el servicio.
 
 ![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/sistema-parking-estacionamiento-urian-viera.png)
 
